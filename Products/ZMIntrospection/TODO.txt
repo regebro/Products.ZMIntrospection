@@ -1,0 +1,7 @@
+Things to add
+-------------
+
+- Make this a service in the control panel
+
+- instrospect class / interfaces / methods / docstrings info too
+

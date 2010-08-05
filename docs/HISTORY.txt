@@ -1,0 +1,32 @@
+Changelog
+=========
+
+0.3.0dev (unreleased)
+---------------------
+
+- Made into a distutils package, and released on PyPI.
+  [lregebro]
+
+0.2.2 (2006-12-04)
+------------------
+
+- [packaging] bundleman svn property
+
+0.2.1 (2006-07-31)
+------------------
+
+
+0.2.0 (2006-05-19)
+------------------
+
+- Add navigation into an object's attributes.
+
+0.1.1 (2006-02-13)
+------------------
+
+- Added a needed security check.
+
+0.1.0 (2005-04-13)
+------------------
+
+- first packaging
