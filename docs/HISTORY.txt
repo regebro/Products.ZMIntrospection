@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.3.0dev (unreleased)
----------------------
+0.3.0 (2010-08-05)
+------------------
 
 - Made into a distutils package, and released on PyPI.
   [lregebro]
