@@ -11,6 +11,7 @@ setup(name='Products.ZMIntrospection',
       classifiers=[
         'Framework :: Zope2',
         'Intended Audience :: Developers',
+        'Development Status :: 6 - Mature',
         ],
       keywords='',
       author='Stefane Fermigier',
