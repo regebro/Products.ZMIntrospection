@@ -4,7 +4,8 @@ Changelog
 0.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Also introspect OOBTree and OIBTree objects (e.g. __annotations__)
+  [avoinea]
 
 
 0.3.0 (2010-08-05)

@@ -21,6 +21,7 @@
 __refresh_module__ = 0
 
 import cgi
+from BTrees import OOBTree, OIBTree
 
 def introspection(self):
     secman = getSecurityManager()
@@ -33,24 +34,42 @@ def introspection(self):
     else:
         obj = self
         for id in path.split("/"):
-            obj = getattr(obj, id)
+            try:
+                obj = getattr(obj, id)
+            except AttributeError:
+                obj = obj.get(id, {})
 
     res = []
 
-    object_vars = vars(obj).items()
+    try:
+        object_vars = vars(obj).items()
+    except TypeError:
+        object_vars = [(key, obj[key]) for key in obj]
+
     object_vars.sort()
     for attr_name, attr_value in object_vars:
         if not path:
             attr_path = attr_name
         else:
             attr_path = path + '/' + attr_name
-        try:
-            attr_vars = vars(attr_value)
-        except:
-            attr_path = ''
-        res.append({'attr_path': attr_path, 
-                    'attr_name': attr_name, 
-                    'attr_value': pprint.pformat(attr_value)})
+
+        if isinstance(attr_value, (OOBTree.OOBTree, OIBTree.OIBTree)):
+            new_value = {}
+            for name in attr_value:
+                new_value[name] = attr_value[name]
+        else:
+            new_value = attr_value
+            try:
+                attr_vars = vars(new_value)
+            except:
+                attr_path = ''
+
+        res.append({
+            'attr_path': attr_path,
+            'attr_name': attr_name,
+            'attr_type': u'%s' % type(attr_value),
+            'attr_value': pprint.pformat(new_value, indent=2)
+        })
     return res
 
 # Monkey-patching. Yuck.
