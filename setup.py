@@ -6,7 +6,7 @@ version = '0.3.1dev'
 setup(name='Products.ZMIntrospection',
       version=version,
       description="Append an Introspection tab to an object's management tabs.",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         'Framework :: Zope2',

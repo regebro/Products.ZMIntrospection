@@ -6,14 +6,20 @@
 <h2>Attributes</h2>
 
 <table>
+<tr class="list-header">
+ <th>Attr</th>
+ <th>Value</th>
+ <th>Type</th>
+</tr>
 <dtml-in introspection>
-<tr>
+<tr class="row-hilite">
 <dtml-if "_['sequence-item']['attr_path']">
 <td><a href="?path=<dtml-var "_['sequence-item']['attr_path']">"><dtml-var "_['sequence-item']['attr_name']"></a></td>
 <dtml-else>
 <td><dtml-var "_['sequence-item']['attr_name']"></td>
 </dtml-if>
 <td><dtml-var "_['sequence-item']['attr_value']" html_quote></td>
+<td><dtml-var "_['sequence-item']['attr_type']" html_quote></td>
 </tr>
 </dtml-in>
 </table>
